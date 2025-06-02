@@ -49,3 +49,9 @@ accountcity = "jaipur"
 
 console.table([accountID, accountEmail, accountPassword, accountcity])  
 // Print updated values in table format
+
+
+
+
+// Practice with Explanation
+

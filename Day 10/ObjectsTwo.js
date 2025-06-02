@@ -75,7 +75,7 @@ console.log("✅ Tinder User:", tinderUser);
 
 
 // ✅ Object Creation using Object Constructor
-const tinderUser = new Object(); // creates an empty object
+// const tinderUser = new Object(); // creates an empty object
 
 // ✅ Or Object Literal way
 const tinderUser2 = {}; // also an empty object
@@ -139,6 +139,34 @@ console.log("Object Entries:", Object.entries(tinderUser)); // [['id', '1245cd']
 console.log("Has 'isLoggedIN'?", tinderUser.hasOwnProperty('isLoggedIN')); // true
 console.log("Has 'password'?", tinderUser.hasOwnProperty('password')); // false
 
+
+// ✅ Object with properties
+const course = {
+    coursename: "JS IN Hindi",
+    price: 999,
+    courseInstructor: "Devesh"
+}
+
+// ✅ Destructuring object and renaming property
+const { courseInstructor: instructor } = course
+console.log(instructor); // Output: Devesh
+
+// ✅ Function with parameter (company)
+// Although no use in function body here, showing how parameter is passed
+const navbar = (company) => {
+    console.log(`Navbar called by ${company}`);
+}
+navbar("Devesh"); // Output: Navbar called by Devesh
+
+// ✅ JSON Structure (JavaScript Object Notation)
+// This is how data is usually stored or sent between systems
+/*
+{
+    "name": "Devesh",
+    "CourseInName": "Js IN Hindi",
+    "price": "Free"
+}
+*/
 
 // What is the difference between object literals {} and Object.create(null) in JavaScript?
 
