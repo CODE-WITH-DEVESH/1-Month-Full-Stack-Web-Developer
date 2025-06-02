@@ -79,6 +79,7 @@ newdate.toLocaleDateString('default', {
 // ❓ Q1.
 // Write a function that returns the current time in HH:MM:SS format.
 
+
 // ❓ Q2.
 // Create a date object for your birthday and print:
 

@@ -57,6 +57,7 @@ let score1 = 100
 let score2 = 200
 let score3 = 300
 console.log(Array.of(score1, score2, score3))  
+
 // Creates array from individual values => [100, 200, 300]
 
 
@@ -117,9 +118,6 @@ console.log(Array.of(score1, score2, score3))
 // console.log(Array.from({name: "Dev"}))
 // ```
 
-// Explain why this happens.
 
-// ---
 
-// Bhai next topic bhej de, turant explanation + 5 practice question ready kar dunga ✅
-// Tere practice ke liye best structure main hi bana ke dunga har baar. Keep learning! 💪📚
+

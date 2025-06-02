@@ -100,7 +100,7 @@ console.log(myn2)                  // Removed elements
 
 // Check if "Ravi" exists using .includes()
 
-// If yes, print its index.
+// If yes, print its index.2,
 
 // ❓ Q4.
 // Write a function that takes an array of numbers and returns them as a string separated by - using .join().
