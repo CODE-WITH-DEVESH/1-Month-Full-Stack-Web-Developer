@@ -57,3 +57,7 @@ console.log("Student Name:", student.name);
 console.log("Roll No:", student.rollNo);
 console.log("Marks:", student.marks);
 console.log("Average Marks:", student.getAverage());
+const navbar = (company) => {
+    console.log(`Navbar called by ${company}`);
+}
+navbar("Devesh")
