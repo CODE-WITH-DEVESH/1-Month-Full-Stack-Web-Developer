@@ -1,0 +1,142 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM |</title>
+</head>
+<body  style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addlanguage(langname){
+        const li =document.createElement('li');
+        li.innerHTML =`${langname}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addlanguage("Python")
+    addlanguage("Java")
+    
+
+
+    function addOptioLagu (langname){
+        const li =document.createElement('li')
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.language').appendChild(li)
+
+    }
+    addOptioLagu("JS")
+
+    // edit
+    
+    const secondlag =document.querySelector("li:nth-child(2)")
+    // secondlag.innerHTML= "Dev"
+    const newli =document.createElement('li')
+    newli.textContent= "Fy"
+    secondlag.replaceWith(newli)
+
+
+    // Edit 
+    const Secondlang = document.querySelector("li:first-child")
+    Secondlang.outerHTML ='<li>Type</li>'
+
+    //Remove
+    const lastlang = document.querySelector('li:last-child')
+    lastlang.remove()
+
+</script>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM | Add, Edit, Remove</title>
+</head>
+<body style="background-color: #212121; color: #fff; font-family: sans-serif;">
+  <h2>Programming Languages</h2>
+  <ul class="language">
+    <li>JavaScript</li> <!-- Ye default language list hai -->
+  </ul>
+
+  <script>
+    // ✅ 1. Language add karne ka method (innerHTML se)
+    // ❗ Not recommended for large projects (security/performance issues ho sakte hain)
+    function addLanguage(langName) {
+      const li = document.createElement('li'); // 👉 ek naya <li> element banaya
+      li.innerHTML = `${langName}`; // 👉 uske andar text dala (innerHTML se)
+      document.querySelector('.language').appendChild(li); // 👉 us <li> ko <ul> ke andar chipka diya
+    }
+
+    addLanguage("Python"); // function call, Python add hoga list mein
+    addLanguage("Java");   // Java bhi add ho jaayega
+
+    // ✅ 2. Better method: createTextNode se add karna (ye recommended hai)
+    function addLanguageBetter(langName) {
+      const li = document.createElement('li'); // 👉 ek aur <li> element banaya
+      const text = document.createTextNode(langName); // 👉 ek textNode banaya (sirf text)
+      li.appendChild(text); // 👉 text ko <li> ke andar chipka diya
+      document.querySelector('.language').appendChild(li); // 👉 final <li> ko <ul> mein chipka diya
+    }
+
+    addLanguageBetter("JS"); // isse "JS" list mein add hoga
+
+    // ✅ 3. Kisi language ko replace karna (2nd element ko)
+    const secondLang = document.querySelector("li:nth-child(2)"); // 👉 2nd <li> ko select kiya
+    const newLi = document.createElement('li'); // 👉 naya <li> banaya
+    newLi.textContent = "Fy"; // 👉 uske andar "Fy" likha
+    secondLang.replaceWith(newLi); // 👉 pura old element ko new wale se replace kar diya
+
+    // ✅ 4. First element ko replace karna outerHTML se
+    const firstLang = document.querySelector("li:first-child"); // 👉 pehla <li> select kiya
+    firstLang.outerHTML = "<li>Type</li>"; // 👉 pura HTML replace kar diya
+
+    // ✅ 5. Last element ko hata dena
+    const lastLang = document.querySelector("li:last-child"); // 👉 last element ko pakda
+    lastLang.remove(); // 👉 usko hata diya DOM se
+
+  </script>
+</body>
+</html>
+
+
+<!-- 
+| Step | Code Part                         | 🔍 Explanation                                                                                       |
+| ---- | --------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| 1️⃣  | `createElement('li')`             | Ek naya HTML element create karta hai — yaani `<li>` tag banata hai.                                 |
+| 2️⃣  | `innerHTML` vs `createTextNode()` | Dono se text insert hota hai — lekin `createTextNode()` zyada safe hai (XSS attack se bachaata hai). |
+| 3️⃣  | `appendChild()`                   | Ye kisi naye element ko kisi existing element ke andar add karta hai.                                |
+| 4️⃣  | `replaceWith()`                   | Kisi bhi old element ko naya element se replace karta hai (purana hata ke naya laata hai).           |
+| 5️⃣  | `outerHTML`                       | Poore element ko naya HTML ke saath replace karta hai (not just content).                            |
+| 6️⃣  | `remove()`                        | Kisi element ko DOM se bilkul hata deta hai (delete kar deta hai).                                   | -->
+
+
+
+<!-- 
+🔁 Practice Questions (Try khud se)
+Ek button banao jo nayi language list mein add kare.
+
+"JS" ko "JavaScript++" se replace karo.
+
+First and last child remove karo.
+
+List empty hone par "No languages to show" dikhana.
+
+Har li item pe mouseover effect lagana via JS. -->
+

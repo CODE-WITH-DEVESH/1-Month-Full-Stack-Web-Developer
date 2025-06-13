@@ -1,0 +1,162 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Code With Atul</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        // nodes
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+
+    <script>
+        // Selecting the parent element
+        const parent = document.querySelector('.parent');
+
+        // Logging the parent node
+        console.log("Parent element:", parent);
+
+        // Logging HTMLCollection of children
+        console.log("Children:", parent.children[1].innerHTML);
+
+        for (let i = 0; i <parent.children.length; i++) {
+         console.log( parent.children[i].innerHTML);
+
+        }
+
+        parent.children[1].style.color ="red"
+        console.log(parent.firstElementChild)
+        console.log(parent.lastElementChild)
+
+        const dayone=document.querySelector('.day')
+        console.log(dayone)
+        console.log(dayone.parentElement);
+        console.log(dayone.nextElementSibling);
+
+        console.log("NODES:" , parent.childNodes);
+
+
+
+        
+      
+        
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOM Traversing | Code With Devesh</title>
+</head>
+<body style="background-color: #212121; color: #fff; font-family: sans-serif;">
+  <div class="parent">
+    // nodes
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thursday</div>
+  </div>
+
+  <script>
+    // ✅ Selecting parent element
+    const parent = document.querySelector('.parent');
+    console.log("✅ Parent element:", parent);
+
+    // ✅ Accessing children by index
+    console.log("📍 Second child (Tuesday):", parent.children[1].innerHTML);
+
+    // ✅ Loop through children
+    for (let i = 0; i < parent.children.length; i++) {
+      console.log(`📌 Child ${i + 1}:`, parent.children[i].innerHTML);
+    }
+
+    // ✅ Styling one child
+    parent.children[1].style.color = "red"; // Tuesday becomes red
+
+    // ✅ Accessing first and last child
+    console.log("🔰 First child:", parent.firstElementChild.innerHTML);
+    console.log("🔰 Last child:", parent.lastElementChild.innerHTML);
+
+    // ✅ Traversing from child to parent
+    const dayone = document.querySelector('.day'); // Monday
+    console.log("🌐 First .day element:", dayone);
+    console.log("⬆️ Parent of Monday:", dayone.parentElement);
+    console.log("➡️ Next sibling of Monday:", dayone.nextElementSibling.innerHTML); // Tuesday
+
+    // ✅ childNodes (includes text nodes, comments, line breaks)
+    console.log("🧱 All child nodes (includes text, line breaks):", parent.childNodes);
+
+    // ✅ Extra DOM Methods (for practice)
+    // Create new element
+    const newDay = document.createElement('div');
+    newDay.className = 'day';
+    newDay.innerText = 'Friday';
+    parent.appendChild(newDay); // Add Friday at the end
+
+    // Clone Tuesday and add after Thursday
+    const tuesdayClone = parent.children[1].cloneNode(true);
+    parent.appendChild(tuesdayClone); // Clone added
+
+    // Remove Monday
+    const monday = parent.children[0];
+    monday.remove();
+
+    // Styling last element
+    parent.lastElementChild.style.fontWeight = "bold";
+    parent.lastElementChild.style.fontStyle = "italic";
+
+    // ✅ Click Event Example
+    parent.children[2].addEventListener('click', function () {
+      alert(`Clicked on: ${this.innerText}`);
+    });
+
+    // ✅ Total children & childNodes count
+    console.log("📦 Total children:", parent.children.length);
+    console.log("📦 Total childNodes:", parent.childNodes.length);
+  </script>
+</body>
+</html>
+
+<!-- 
+🧪 Isme kya kya cover hai?
+✅ .querySelector()
+✅ .children, .childNodes
+✅ .firstElementChild, .lastElementChild
+✅ .parentElement, .nextElementSibling
+✅ createElement, appendChild, remove()
+✅ cloneNode()
+✅ addEventListener('click')
+✅ innerHTML, innerText, style -->
+
+
+
+🔁 Practice Questions (Yahi file se banenge):
+<!-- Add Saturday using JS.
+
+Remove Thursday from DOM.
+
+Click on any .day and alert its name.
+
+Clone Wednesday twice.
+
+Count all .day elements.
+
+Add border to every even child.
+
+Bold all text starting from Tuesday.
+
+Change parent’s background color.
+
+Check if .parent has class parent.
+
+Print total number of text nodes. -->
+

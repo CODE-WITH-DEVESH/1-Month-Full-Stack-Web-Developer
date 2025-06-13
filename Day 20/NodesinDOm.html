@@ -1,0 +1,119 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeList in JS</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+
+<script>
+    // 1. Create a new div element
+    const div = document.createElement('div');
+    console.log(div);
+
+    // 2. Add class and random id
+    div.className = "main";
+    div.id = Math.round(Math.random() * 10 + 1);
+    div.setAttribute("tilte" ,"generated Tiltle")
+    div.style.backgroundColor ="green"
+    div.style.padding ="12px"
+    div.innerText ="devesh"
+   const addText = document.createTextNode("Devesh With Dev")
+   div.appendChild(addText)
+   document.body.appendChild(div)
+
+
+   
+</script>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Create Element | Devesh with Dev</title>
+</head>
+<body style="background-color: #121212; color: #fff; font-family: sans-serif;">
+
+  <script>
+    // ✅ Step 1: Create a new <div> element
+    const div = document.createElement('div'); // New div created in memory
+    console.log(div); // 👉 Output: <div></div>
+
+    // ✅ Step 2: Add a class to the element
+    div.className = "main"; // This becomes: <div class="main"></div>
+
+    // ✅ Step 3: Add a random ID between 1 and 11
+    div.id = Math.round(Math.random() * 10 + 1); // For example: id="7"
+
+    // ✅ Step 4: Set a custom attribute
+    // ⚠️ Typo in 'tilte' (should be 'title' normally)
+    div.setAttribute("tilte", "generated Tiltle"); // Adds: tilte="generated Tiltle"
+
+    // ✅ Step 5: Apply CSS styling directly using JS
+    div.style.backgroundColor = "green";  // Background becomes green
+    div.style.padding = "12px";           // Padding around the content
+
+    // ✅ Step 6: Set some text using innerText
+    div.innerText = "devesh"; // Now content becomes: devesh
+
+    // ✅ Step 7: Create a Text Node (this adds more text)
+    const addText = document.createTextNode("Devesh With Dev");
+
+    // ✅ Step 8: Append the Text Node to the div
+    div.appendChild(addText);
+    // Now full content inside div is: deveshDevesh With Dev
+
+    // ✅ Step 9: Append the whole div into the body
+    document.body.appendChild(div);
+    // Finally, it shows on the browser
+
+    // 🔎 Final Output in HTML would be:
+    // <div class="main" id="5" tilte="generated Tiltle" style="background-color: green; padding: 12px;">
+    //    deveshDevesh With Dev
+    // </div>
+
+    // ✅ Explanation Recap:
+    console.log(`
+      ✅ You created a new <div>
+      ✅ Set class to 'main'
+      ✅ Assigned a random ID
+      ✅ Added a custom attribute 'tilte'
+      ✅ Applied green background and padding
+      ✅ Added text in two ways: innerText + appendChild
+      ✅ Final div added to <body>
+    `);
+  </script>
+
+</body>
+</html>
+
+
+| 🔧 Function                   | 📝 Kaam kya karta hai                                |
+<!-- | ----------------------------- | ---------------------------------------------------- |
+| `createElement('div')`        | Naya element banata hai (memory mein)                |
+| `className = "main"`          | Class lagata hai `<div class="main">`                |
+| `id = random`                 | Unique ID de deta hai                                |
+| `setAttribute()`              | Koi bhi attribute set karne ke liye                  |
+| `style.property`              | Direct styling karne ke liye                         |
+| `innerText`                   | Direct text set karta hai                            |
+| `createTextNode()`            | Ek text node banata hai                              |
+| `appendChild()`               | Kisi element ya text ko kisi aur ke andar lagata hai |
+| `document.body.appendChild()` | DOM mein add karta hai                               | -->
+
+
+<!-- 🔁 Practice Ideas:
+Ek <p> tag banao aur usme motivational quote likho.
+
+ID ko random color se change karo.
+
+Clone div and add 2 copies to body.
+
+Click event lagao aur alert dikhao.
+
+Create a button and remove the div on click. -->
+
