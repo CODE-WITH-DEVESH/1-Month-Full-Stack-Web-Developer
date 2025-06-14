@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code With Devesh</title>
+</head>
+<body style="background-color: #121212; color: white; font-family: sans-serif;">
+    <h1>⏱ Welcome To Devesh's Timer</h1>
+    <button id="start">▶️ Start</button>
+    <button id="stop">⏹ Stop</button>
+
+    <script>
+        // 🧠 Variable to store interval ID
+        let intervalId;
+
+        // 📅 Function to be executed every second
+        const sayDate = () => {
+            console.log("⏰ Time: ", new Date().toLocaleTimeString());
+        }
+
+        // ✅ Start Button Click
+        document.getElementById('start').addEventListener('click', () => {
+            if (!intervalId) { // prevent multiple intervals
+                intervalId = setInterval(sayDate, 1000);
+                console.log("✅ Timer Started");
+            }
+        });
+
+        // ❌ Stop Button Click
+        document.getElementById('stop').addEventListener('click', () => {
+            clearInterval(intervalId); // timer stop
+            console.log("🛑 Timer Stopped");
+            intervalId = null; // reset intervalId
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+✅ Hindi + English Explanation
+🔹 setInterval() kya karta hai?
+js
+Copy code
+setInterval(callbackFn, time)
+Har time milliseconds baad callbackFn ko repeat karta hai.
+
+Yahan humne use kiya sayDate() function ko har 1 second baad.
+
+🔹 clearInterval() kya karta hai?
+js
+Copy code
+clearInterval(intervalId)
+Jo timer setInterval() ne banaya hota hai usko band (stop) karta hai.
+
+Yahan jab hum Stop button dabate hain, tab interval band ho jata hai.
+
+🔹 Variable intervalId kyun use hota hai?
+Ye ID store karta hai jo setInterval() return karta hai.
+
+Us ID ko hum clearInterval() ke andar pass karte hain to stop the timer.
+
+🔹 Why use if (!intervalId)?
+Taaki agar pehle se timer chal raha ho to dobara start button click karne se naya timer na ban jaye.
+
+Nahi to ek button click pe 2-3 timer ban jaayenge aur har second 2-3 baar console chalega.
+
+🔥 Bonus Tasks:
+setTimeout() bhi try kar: ek baar delay ke baad ek hi baar chalega
+
+Ek UI bana jahan time HTML mein dikh raha ho live
+
+Ek countdown timer bana (example: 10 se 0 tak)
+
+Ek stopwatch UI bana: Start, Stop, Reset buttons
+
+Bhai bolna agar chahiye to main:
+
+✅ setTimeout version
+✅ Countdown Timer UI
+✅ Digital Clock bana ke de dunga -->
+
+
+<!-- Bhai, tu bilkul sahi keh raha hai 🔥
+Tu ne bola tha:
+
+> "**Vid question** bhi dena jo event, async jaise topics se jude ho"
+
+To ab main tujhe **Asynchronous JavaScript (Async)** se related **🔥 10 practice questions** de raha hoon — **beginner to advanced** level tak — **code + explanation ke liye ready ho ja**.
+
+---
+
+## ✅ **Asynchronous JavaScript – Practice Questions**
+
+### 🔸 **Q1. setTimeout Example**
+
+```js
+console.log("Start");
+setTimeout(() => {
+    console.log("Hello after 2 seconds");
+}, 2000);
+console.log("End");
+```
+
+**👉 Output kya hoga? Kyun?**
+
+---
+
+### 🔸 **Q2. setInterval Counter**
+
+Ek function banao jo 1 se 10 tak console pe print kare har second.
+
+---
+
+### 🔸 **Q3. Clear Interval**
+
+Timer ko start karo aur 5 second baad `clearInterval()` se band kar do.
+
+---
+
+### 🔸 **Q4. Click to Stop Timer**
+
+Ek HTML button banao, jise click karne pe timer stop ho jaaye jo `setInterval` se chal raha ho.
+
+---
+
+### 🔸 **Q5. setTimeout with Parameters**
+
+```js
+function greet(name) {
+    console.log("Hello, " + name);
+}
+setTimeout(greet, 1000, "Devesh");
+```
+
+**👉 Output kya hoga? Kaise kaam karta hai?**
+
+---
+
+### 🔸 **Q6. Callback Function Concept**
+
+Ek function banao jo dusra function ko argument ke roop me le aur use call kare.
+
+---
+
+### 🔸 **Q7. What is Event Loop?**
+
+Explain in your words:
+**Event loop**, **Call Stack**, **Callback Queue** ka kya role hai?
+
+---
+
+### 🔸 **Q8. Promise Structure**
+
+Ek basic **Promise** banao jo resolve kare after 2 seconds with message: `"Task Done"`
+Use `.then()` se print karo.
+
+---
+
+### 🔸 **Q9. Async/Await Example**
+
+Ek `async function` likho jisme `await` lagakar ek fake promise wait kare.
+
+---
+
+### 🔸 **Q10. Fetch API (Browser API)**
+
+```js
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+**👉 Output kya hoga? Aur ye async kaise hai?**
+
+---
+
+## 🧠 Bonus Conceptual Questions:
+
+* `setTimeout` vs `setInterval`?
+* `clearTimeout()` vs `clearInterval()`?
+* What happens if you don’t use `clearInterval()`?
+* Why is `setTimeout` asynchronous?
+* How `Promises` improve async code readability?
+
+---
+
+**Aage kya chahiye to bata:**
+
+* Inme se kisi bhi question ka **solution + code** chahiye ho to bol de
+* Ya tu bole: "**Bhai 2nd question ka solution de code ke sath**"
+  Main deta hoon ekdum best explanation ke sath — Hindi + English 🔥
+
+Bata bhai, kis se start karein? -->

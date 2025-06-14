@@ -791,5 +791,4 @@ btn.addEventListener("click", function(e) {
 // 7. Use template to show chat messages on button click.
 // 8. Detect when a new child is added to `#container` using MutationObserver.
 // 9. Track visibility of multiple `.card` elements while scrolling.
-// 10. Create infinite scroll with `IntersectionObserver` and templates.
-
+// 10. Create infinite scroll with `IntersectionObserver` and templates 

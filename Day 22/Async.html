@@ -1,0 +1,194 @@
+<!-- 
+### ✅ Cover karenge:
+
+1. **Synchronous vs Asynchronous JS**
+2. **setTimeout / setInterval**
+3. **Callback Hell**
+4. **Promises**
+5. **.then() / .catch() / .finally()**
+6. **Async / Await**
+7. **Try / Catch**
+8. **Practical Examples + Practice Questions** -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🔁 Async JavaScript - Devesh Special</title>
+</head>
+<body style="background-color: #121212; color: white; font-family: sans-serif;">
+  <h2>🚀 Async JavaScript Explained (Step by Step)</h2>
+
+  <script>
+    // 1️⃣ Synchronous vs Asynchronous
+    console.log("Synchronous 1️⃣ Start");
+
+    // setTimeout: delay ke baad chalega (Async)
+    setTimeout(() => {
+      console.log("⏳ Asynchronous - setTimeout after 2 seconds");
+    }, 2000);
+
+    console.log("Synchronous 1️⃣ End");
+
+    // 2️⃣ Callback Function
+    function greetUser(name, callback) {
+      console.log(`Hello, ${name}`);
+      callback();  // baad mein chalega
+    }
+
+    greetUser("Devesh", () => {
+      console.log("✅ Welcome to Async JS");
+    });
+
+    // 3️⃣ Callback Hell (Nested asyncs)
+    setTimeout(() => {
+      console.log("📦 Task 1 done");
+      setTimeout(() => {
+        console.log("📦 Task 2 done");
+        setTimeout(() => {
+          console.log("📦 Task 3 done");
+        }, 1000);
+      }, 1000);
+    }, 1000);
+
+    // 4️⃣ Promises (Better than callback hell)
+    const myPromise = new Promise((resolve, reject) => {
+      let success = true;
+      if (success) {
+        resolve("🎉 Promise Resolved");
+      } else {
+        reject("❌ Promise Rejected");
+      }
+    });
+
+    myPromise
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        console.log("✅ Promise completed (success or fail)");
+      });
+
+    // 5️⃣ Promise Chaining
+    const doTask = () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("🚀 Task Complete after 2s");
+        }, 2000);
+      });
+    };
+
+    doTask().then((msg) => {
+      console.log(msg);
+      return "✅ Continue next...";
+    }).then((nextMsg) => {
+      console.log(nextMsg);
+    });
+
+    // 6️⃣ Async / Await (Best Practice)
+    function resolveAfter3Sec() {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("⌛ Done in 3 seconds");
+        }, 3000);
+      });
+    }
+
+    async function handleAsync() {
+      console.log("🟡 Async/Await Function Start");
+      const result = await resolveAfter3Sec();
+      console.log("🟢 Result:", result);
+      console.log("🟢 Async/Await Done");
+    }
+
+    handleAsync();
+
+    // 7️⃣ Try-Catch with async/await
+    async function errorHandlingDemo() {
+      try {
+        let response = await Promise.reject("🔥 Error happened");
+        console.log(response); // won't run
+      } catch (error) {
+        console.log("❌ Caught Error:", error);
+      } finally {
+        console.log("🟩 Finally Block Always Runs");
+      }
+    }
+
+    errorHandlingDemo();
+  </script>
+</body>
+</html>
+
+
+<!-- ## ✅ Hindi + English Explanation (One-by-One)
+
+### 1️⃣ **Synchronous vs Asynchronous**
+
+* **Synchronous**: Line by line code execution
+* **Asynchronous**: Kuch code delay se execute hota hai (background me chalta hai)
+
+---
+
+### 2️⃣ **setTimeout / setInterval**
+
+* `setTimeout(fn, ms)`: delay ke baad code chalaata hai
+* `setInterval(fn, ms)`: baar baar repeat karta hai har ms ke baad
+
+---
+
+### 3️⃣ **Callback Hell**
+
+* Nested `setTimeout` ya function calls jo ek ke baad ek execute hote hain
+* Code unreadable ban jaata hai
+
+---
+
+### 4️⃣ **Promises**
+
+* Future ka result handle karta hai
+* 3 states: `pending`, `resolved`, `rejected`
+
+```js
+new Promise((resolve, reject) => {
+  // async logic
+})
+```
+
+---
+
+### 5️⃣ **.then() / .catch() / .finally()**
+
+* `then()`: jab promise resolve ho
+* `catch()`: jab error aaye
+* `finally()`: dono case me chalega
+
+---
+
+### 6️⃣ **async / await**
+
+* Async functions likhne ka modern tarika
+* `await` se promise ka result ka wait karte hain
+
+---
+
+### 7️⃣ **try / catch / finally**
+
+* Error handle karne ke liye use hota hai async/await ke sath
+* `catch` me error milta hai, `finally` hamesha run hota hai
+
+---
+
+## ✅ Bonus: Practice Questions (Asynchronous)
+
+1. `setInterval` ka use karke 3 second mein ek baar `"Loading..."` print karo
+2. Ek promise banao jo 5 sec ke baad "Done!" print kare
+3. Async/await se ek function banao jo 2 promises ka wait kare
+4. `fetch()` API ka use karke user data print karo (Bonus topic!)
+5. Callback hell se ek task chain banao (3 step printing)
+
+---
+ -->

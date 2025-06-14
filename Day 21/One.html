@@ -1,0 +1,271 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amazing Image</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    section {
+      width: 100%;
+      padding: 40px 20px;
+      background-color: #e0f7fa;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #00796b;
+      margin-bottom: 30px;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #image {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    #image li {
+      border: 2px solid #ccc;
+      padding: 10px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 220px;
+    }
+
+    #image img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .submit-link {
+      margin-top: 30px;
+    }
+
+    .submit-link a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #00796b;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .submit-link a:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+
+  <section>
+    <h2>Amazing Image</h2>
+
+    <div class="image-container">
+      <ul id="image">
+        <li>
+          <img width="200px"  src="https://images.pexels.com/photos/32440654/pexels-photo-32440654/free-photo-of-charming-plant-filled-parisian-cafe-entrance.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Tree" id="img1">
+        </li>
+        <li>
+          <img width="200px"  src="https://images.pexels.com/photos/17631065/pexels-photo-17631065/free-photo-of-ruins-of-abandoned-house-in-vast-grassland-flow-country-scotland.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Beach" id="img2">
+        </li>
+        <li>
+          <img width="200px" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg" alt="Forest" id="img3">
+        </li>
+        <li>
+          <img width="200px"  src="https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_1280.jpg" alt="Road" id="img4">
+        </li>
+        <li>
+          <img width="200px"  src="https://cdn.pixabay.com/photo/2017/01/06/19/15/sunset-1957287_1280.jpg" alt="Sunset" id="img5">
+        </li>
+        <li>
+          <img width="200px"  src="https://images.pexels.com/photos/32440654/pexels-photo-32440654/free-photo-of-charming-plant-filled-parisian-cafe-entrance.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mountains" id="img6">
+        </li>
+      </ul>
+    </div>
+
+    <div class="submit-link">
+      <a id="google" href="https://www.google.com" target="_blank">Submit Link</a>
+    </div>
+  </section>
+
+</body>
+<script>
+    // type, timestamp , defalutPrevented
+    // target , to element ,srcElement , currentTarget
+    // allkey , ctrlKey , shiftkey , keycode
+    
+        //attachEvent()
+        // jQuery -ON
+    
+    document.getElementById('img1').onclick = function (){
+        alert("One Img")    
+    }
+
+
+  document.getElementById("image").addEventListener('click', function(e) {
+    // alert("One Img ")  
+    console.log(" Click ")
+},false); 
+
+  document.getElementById("ima1").addEventListener('click', function(e) {
+    // alert("One Img ")  
+    console.log(" One Img  ")
+    e.stopPropagation()
+},false);    
+
+
+document.getElementById('google').addEventListener('click',function(e) {
+    e.preventDefault()
+    console.log("Google")
+} ,false)
+
+
+
+document.querySelector('#image').addEventListener('click' , function(e) {
+    // console.log(e.target.parentNode);
+    console.log(e.target.tagName);
+    if(e.target.tagName === 'IMG'){
+        console.log(e.target.id)
+        
+        let removeIT = e.target.parentNode
+        removeIT.remove()
+    }
+
+    let removeIT = e.target.parentNode
+    removeIT.remove()
+    // removeIT.parentNode.removeChild(removeIT)
+    
+} ,false)
+</script>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Events - Devesh Special</title>
+</head>
+<body style="background-color: #121212; color: white;">
+
+  <h2>🎯 DOM Events Full Demo</h2>
+
+  <div id="image" style="display: flex; gap: 20px;">
+    <div id="img1">
+      <img id="ima1" src="https://via.placeholder.com/100" />
+    </div>
+    <div id="img2">
+      <img id="ima2" src="https://via.placeholder.com/100" />
+    </div>
+  </div>
+
+  <br>
+  <a href="https://www.google.com" target="_blank" id="google">Visit Google</a>
+
+  <script>
+    // 🔹 onclick basic way: directly HTML element se JS attach
+    document.getElementById('img1').onclick = function () {
+      alert("One Img clicked using onclick")  // sirf img1 div par lagega
+    }
+
+    // 🔹 addEventListener use karte hain - modern way
+    document.getElementById("image").addEventListener('click', function (e) {
+      console.log("DIV image clicked (Event Bubbling test)")
+    }, false);
+
+    // 🔹 IMG ke andar click handle + stopPropagation
+    document.getElementById("ima1").addEventListener('click', function (e) {
+      console.log("Image with id ima1 clicked");   // ye sirf img ke click pe chalega
+      e.stopPropagation();  // bubbling ko rokta hai (parent div pe click event nahi jaayega)
+    }, false);
+
+    // 🔹 preventDefault() ka use (anchor tag ko rokna)
+    document.getElementById('google').addEventListener('click', function (e) {
+      e.preventDefault();  // anchor tag ka default kaam rokta hai (redirect nahi karega)
+      console.log("Google link clicked but not redirected");
+    }, false);
+
+    // 🔹 Dynamically clicked image ko remove karna
+    document.querySelector('#image').addEventListener('click', function (e) {
+      // console.log(e.target.parentNode);  // IMG ke parent div ko log karega
+      console.log("Clicked Tag:", e.target.tagName);
+
+      if (e.target.tagName === 'IMG') {
+        console.log("Remove IMG with ID:", e.target.id);
+        let removeIt = e.target.parentNode;
+        removeIt.remove();  // IMG ke parent div ko hi hata diya
+      }
+    }, false);
+
+    // 🔸Event object se aur kya milta hai?
+    /*
+      e.type             -> kis type ka event hua (click, keyup etc)
+      e.timeStamp        -> event kab fire hua
+      e.defaultPrevented -> true/false (kya preventDefault use hua?)
+      e.target            -> jis element pe click hua
+      e.currentTarget     -> jahan eventListener laga tha
+      e.ctrlKey / e.shiftKey -> modifier keys
+      e.key / e.keyCode   -> for keyboard events
+    */
+  </script>
+</body>
+</html>
+<!-- 🔍 Hindi + English Explanation (One-by-One)
+✅ onclick vs addEventListener
+onclick ek purana tarika hai, ek hi function handle kar sakta hai.
+
+addEventListener() multiple listeners allow karta hai, zyada flexible hai.
+
+✅ stopPropagation() kya karta hai?
+Event bubbling ko rokta hai.
+
+Jaise img pe click karo, to parent div ka event trigger nahi hoga.
+
+✅ preventDefault() kya karta hai?
+Anchor (<a>) ya form ka default behaviour (redirect/submit) rokta hai.
+
+Useful when you want to handle it manually via JS.
+
+✅ event.target & tagName
+e.target: jis element par actual click hua.
+
+tagName: uska naam (like IMG, DIV).
+
+✅ Dynamic remove
+e.target.parentNode.remove() se us image ke parent div ko hata diya jata hai.
+
+✅ BONUS: 5 Practice Questions
+Ek button banao, uspe dblclick lagao aur alert karao.
+
+Ek input field banao, keyup pe uska value console mein dikhao.
+
+mouseover pe ek image ka size change karo.
+
+Form submit hone pe prevent karo aur alert dikhao: “Submitted Successfully!”
+
+Agar koi image pe click kare, to uske niche ek message add karo: “You clicked on Image!” -->
+

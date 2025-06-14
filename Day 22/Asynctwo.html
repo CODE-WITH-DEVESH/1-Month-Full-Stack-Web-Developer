@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code With Dev</title>
+</head>
+<body>
+    <h1>Welocme To Devesh</h1> <!-- Initial heading -->
+    <button id="stop">Stop</button> <!-- Button to stop setTimeout -->
+</body>
+
+<script>
+    // 🔴 setTimeout() → ye function ek baar koi kaam delay ke baad karta hai
+    // Example:
+    // setTimeout(() => {
+    //     console.log("Hello after 2 sec")
+    // }, 2000); // 2000ms = 2 seconds
+
+    // 🔴 setInterval() → ye function baar-baar repeat karta hai
+    // Example:
+    // setInterval(()=> {
+    //     console.log("Repeating every 2 sec")
+    // }, 2000);
+
+    // ✅ Step 1: Function define kiya jo console par log karega (abhi use nahi ho raha)
+    const sayDevesh = function(){
+        console.log("Hitesh")
+    }
+
+    // ✅ Step 2: Ek function jo heading ko change karega
+    const changetesxt = function(){
+        document.querySelector('h1').innerHTML = "Best Deevesh" 
+        // Heading text ko badal diya
+    }
+
+    // ✅ Step 3: setTimeout lagaya jo 2 second ke baad `changetesxt()` run karega
+    const chacme = setTimeout(changetesxt, 2000)
+
+    // ✅ Step 4: Agar user "Stop" button dabata hai, to timeout ko cancel kar dena
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(chacme) // setTimeout cancel ho gaya
+        console.log("Timeout stopped by user")
+    })
+
+    // Bonus Tip 💡:
+    // clearTimeout() sirf tab kaam karega jab usse pehle setTimeout ho aur uska ID store kara ho
+
+    // Interview 🔥:
+    // Q: clearTimeout() aur clearInterval() mein kya difference hai?
+    // A: clearTimeout ek baar chalne wale delay ko rokta hai, clearInterval loop ko rokta hai.
+
+</script>
+</html>
+
+
+
+ <!-- Hindi + English Explanation Summary:
+setTimeout() ek baar 2 sec ke baad heading ko change karta hai.
+
+Agar user "Stop" button dabata hai 2 sec ke andar, to clearTimeout() use rok deta hai.
+
+Yeh real-world example hai: Jaise user ko ad dikhani ho 5 sec baad, but user ne kuchh click kiya to cancel ho jaye.
+
+🔟 Practice Questions (compiler ke andar nahi chhoda, yahin de raha hoon):
+setTimeout() aur setInterval() mein kya difference hai?
+
+clearTimeout() ka use kab hota hai?
+
+Agar setTimeout() ka time 0 ho to kya hoga?
+
+Button ke bina setTimeout() ko kaise stop karenge?
+
+querySelector aur getElementById mein farq?
+
+innerHTML aur textContent mein kya antar hai?
+
+addEventListener() ka syntax kya hota hai?
+
+JavaScript async behavior setTimeout() mein kaise kaam karta hai?
+
+Kya setTimeout() synchronous hai?
+
+setTimeout() ke andar function pass karte waqt parentheses kyu nahi lagate? -->
