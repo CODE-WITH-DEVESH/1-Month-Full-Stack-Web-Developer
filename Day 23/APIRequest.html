@@ -1,0 +1,96 @@
+<!-- 
+🌐 API Used: https://api.github.com/users/CODE-WITH-DEVESH
+Purpose: GitHub user data get karna (followers, name, etc.)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Request Example</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <h1>Check Console for GitHub User Followers 👇</h1>
+</body>
+
+<script>
+    // ✅ Step 1: API endpoint (ye tu kisi bhi user ka URL daal sakta hai)
+    const requesturl = 'https://api.github.com/users/CODE-WITH-DEVESH';
+
+    // ✅ Step 2: XMLHttpRequest object create kiya
+    const xhr = new XMLHttpRequest();
+
+    // ✅ Step 3: Open connection (GET method se data lana hai)
+    xhr.open('GET', requesturl);
+
+    // ✅ Step 4: onreadystatechange event trigger hota hai jab state change hoti hai
+    xhr.onreadystatechange = function () {
+        console.log("Ready State:", xhr.readyState); // 1 to 4 tak logs dikhengi
+
+        // ✅ Step 5: Check if request completed (readyState 4 == DONE)
+        if (xhr.readyState === 4) {
+            // ✅ Step 6: Parse JSON data (API se text aata hai string format mein)
+            const data = JSON.parse(this.responseText); // JSON string ko JS object mein convert
+
+            // ✅ Step 7: Console par data ka type aur followers count print
+            console.log("Type of data:", typeof data); // object
+            console.log("Followers:", data.followers); // output e.g. 2, 15, etc.
+        }
+    }
+
+    // ✅ Step 8: Request bhejna (send kar diya)
+    xhr.send();
+
+    /*
+    🔍 Important Explanation (Hindi + English):
+
+    🧠 XMLHttpRequest ek purana method hai JS mein HTTP request bhejne ke liye.
+    Aaj ke zamane mein hum mostly `fetch()` ya Axios ka use karte hain.
+
+    ✅ readyState values:
+    0: UNSENT → XMLHttpRequest object ban gaya
+    1: OPENED → open() call ho gaya
+    2: HEADERS_RECEIVED → send() ke baad headers mil gaye
+    3: LOADING → partial data mil raha hai
+    4: DONE → pura response mil gaya (Success/Fail dono ho sakta hai)
+
+    ✅ JSON.parse() : string ko object mein convert karta hai
+
+    ✅ console.log(data.followers) → direct followers property print kar raha hai
+
+    */
+</script>
+</html>
+
+
+<!-- // ✅ Modern Replacement:
+fetch('https://api.github.com/users/CODE-WITH-DEVESH')
+.then(response => response.json())
+.then(data => console.log("Followers (Modern):", data.followers))
+.catch(err => console.log("Error:", err)); -->
+
+
+<!-- 🔟 Interview / Practice Questions:
+XMLHttpRequest kya hai?
+
+readyState ke values kya hoti hain?
+
+JSON.parse() ka use kya hai?
+
+Kaise pata chalega ki request successful thi?
+
+GET vs POST method mein kya difference hota hai?
+
+this.responseText kya return karta hai?
+
+fetch() aur XMLHttpRequest mein kya difference hai?
+
+Agar URL wrong ho to kya hoga?
+
+API ka response kab object hota hai?
+
+Real-life use case of GitHub API? -->
+
+
+
