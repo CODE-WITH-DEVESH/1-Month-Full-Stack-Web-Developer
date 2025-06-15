@@ -78,4 +78,3 @@ async function ConsumedPromise() {
     console.log(response)
     
 }
-Consumed
