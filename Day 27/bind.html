@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React .Js </title>
+</head>
+<body>
+    <button>Button Clicked</button>
+
+</body>
+<script>
+    // class React {
+    //     constructor(){
+    //         this.libaray ="React"
+    //         this.sever = "https://localhost:3000"
+    //         // Requirement
+
+
+    //         document.querySelector('button').addEventListener('click', this.handelCkick.bind(this))
+    //     }
+    //     handelCkick(){
+    //         console.log("Button Clicked")
+    //         console.log(this.sever)
+
+    //     }
+    // }
+
+
+    // const app = new React()
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+    // ✅ React-like Class Structure in Vanilla JavaScript (Compiler Style Explanation)
+
+// 💡 Yeh example ek simulation hai ki kaise React framework ke concepts ko ek class-based JavaScript structure mein implement kiya ja sakta hai.
+
+// 🧠 Class Definition
+class React {
+    constructor(){
+        // 🔸 Properties
+        this.libaray = "React"; // framework name
+        this.sever = "https://localhost:3000"; // dummy server URL
+
+        // 🔸 Requirement: Jab button click ho, to method call ho
+        // 🔸 Binding `this` ka use kyunki class ke andar this default `undefined` ho jata hai event listener mein
+        document.querySelector('button').addEventListener('click', this.handelCkick.bind(this));
+        // agar `.bind(this)` nahi likhenge, to `this.sever` undefined ho jayega
+    }
+
+    // 🔸 Method to handle button click
+    handelCkick(){
+        console.log("Button Clicked");
+        console.log(this.sever); // prints server URL correctly because of `bind(this)`
+    }
+}
+
+// 🔸 Object Creation (Instance)
+const app = new React();
+
+// -----------------------------------------------------------
+// 🧠 OUTPUT:
+// When user clicks the button:
+// --> "Button Clicked"
+// --> "https://localhost:3000"
+
+// -----------------------------------------------------------
+// 📘 Viva / Interview Questions:
+
+// 1️⃣ `.bind(this)` kyu use karte ho?
+//    ➤ JavaScript mein `this` ka context lost ho jata hai jab aap method ko as event listener pass karte ho.
+//    ➤ `.bind(this)` ensure karta hai ki `this` hamesha us class ka instance hi ho.
+
+// 2️⃣ Agar `.bind(this)` na lagaye to kya hoga?
+//    ➤ `this.sever` undefined aa jayega, kyunki event listener ke andar `this` button element ko refer karega ya `undefined` hoga (strict mode).
+
+// 3️⃣ `this.libaray` aur `this.sever` kahan store ho raha hai?
+//    ➤ Ye sab instance ke andar store ho raha hai, jab aap `new React()` karte ho.
+
+// 4️⃣ `document.querySelector('button')...` kyu constructor ke andar likha hai?
+//    ➤ Taaki jab object banaye tabhi listener attach ho jaye. Ek tarah se mounting simulation hai (jaise React mein hota hai).
+
+// 5️⃣ JavaScript mein `class` kya hota hai?
+//    ➤ Ye syntactic sugar hai jo `constructor function + prototype` system ke upar banaya gaya hai.
+
+// -----------------------------------------------------------
+// 💡 BONUS TIPS:
+
+// ✅ Jab bhi event listener class ke andar use karo, `bind(this)` zaroor likho (ya arrow function use karo)
+// ✅ Classes ko reuse aur structure banane ke liye use karo
+// ✅ React ka naam sirf example ke liye use hua hai, yeh actual React nahi hai
+// ✅ `this` ka correct context samajhna JS mein mastery ke liye zaroori hai
+
+
+</script>
+</html>
