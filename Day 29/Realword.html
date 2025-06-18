@@ -1,0 +1,232 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <button id="orange">
+        orange
+    </button>
+    <button id="red">
+        red
+    </button>
+</body>
+<script>
+    function clickhendel(color){
+        return function (){
+            document.body.style.backgroundColor =`${color}`
+
+        }
+    }
+    document.getElementById('orange').onclick=clickhendel('orange')
+    document.getElementById('red').onclick=clickhendel('red')
+</script>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!-- ✅ Closure with Button Click — Background Color Changer -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closure</title>
+</head>
+<body>
+  <button id="orange">Orange</button>
+  <button id="red">Red</button>
+</body>
+
+<script>
+  // ✅ Yeh function ek closure banata hai
+  function clickhendel(color) {
+    // Inner function outer function ke "color" ko yaad rakhta hai
+    return function () {
+      document.body.style.backgroundColor = `${color}`;
+    };
+  }
+
+  // 👇 Jab user button pe click karega, respective closure call hoga
+  document.getElementById('orange').onclick = clickhendel('orange');
+  document.getElementById('red').onclick = clickhendel('red');
+
+  /*
+    💡 Kya ho raha hai yahaan?
+
+    1. `clickhendel('orange')` call hoke ek function return kar raha hai
+    2. Woh function ke paas access hai `color` = 'orange' ka → Closure
+    3. Jab `onclick` mein click hota hai, tab woh closure wala function run hota hai
+
+    📌 Closure isliye kaam karta hai kyunki inner function `color` variable ko yaad rakhta hai 
+    even after `clickhendel` function execution is over.
+  */
+</script>
+</html>
+
+
+
+
+<!-- 
+
+📘 Bonus Explanation in Aasaan Bhasha:
+Tu clickhendel("orange") ya clickhendel("red") call kar raha hai,
+
+Yeh ek function return karta hai jisme color locked hota hai.
+
+Jab user button dabata hai, tab woh locked color use ho jaata hai.
+
+Isiliye background color badal jaata hai. -->
+
+
+Bilkul Devesh! Neeche maine tumhare liye **Closures** aur **Lexical Scope** ke upar kuch **important practice questions** aur unke **answers** diye hain — easy bhasha mein, jisse tum concept ko achhe se samajh pao:
+
+---
+
+### 📚 **Lexical Scope & Closure – Practice Questions with Answers**
+
+---
+
+#### ✅ Q1. Lexical Scope kya hota hai?
+
+**Answer:**
+Jab ek function apne surrounding (outer) scope ke variables ko access kar sakta hai, usse lexical scope kehte hain.
+Jaise:
+
+```js
+function outer() {
+  let name = "Devesh";
+
+  function inner() {
+    console.log(name); // ✅ access ho gaya
+  }
+
+  inner();
+}
+outer();
+```
+
+---
+
+#### ✅ Q2. Closure kya hota hai?
+
+**Answer:**
+Jab ek inner function apne outer function ke variables ko **uske baad bhi** yaad rakhta hai (ya use karta hai), toh use **Closure** kehte hain.
+
+```js
+function greet() {
+  let name = "Devesh";
+
+  return function () {
+    console.log("Hello " + name);
+  };
+}
+
+const sayHi = greet();
+sayHi();  // Output: Hello Devesh ✅
+```
+
+---
+
+#### ✅ Q3. Kya closure ke andar private variables ban sakte hain?
+
+**Answer:**
+Haan, closure ka use hum private data store karne ke liye bhi karte hain — bina kisi global variable ke.
+
+```js
+function counter() {
+  let count = 0;
+
+  return function () {
+    count++;
+    console.log(count);
+  };
+}
+
+const count1 = counter();
+count1(); // 1
+count1(); // 2
+```
+
+---
+
+#### ✅ Q4. Closure ka real-life use kya hai?
+
+**Answer:**
+
+* Counter banana
+* Private data store karna
+* Event listener mein value lock karna
+* Debouncing/throttling functions (advanced)
+
+---
+
+#### ✅ Q5. Yeh closure hai ya nahi?
+
+```js
+function outer() {
+  let data = "info";
+  function inner() {
+    console.log(data);
+  }
+  return inner;
+}
+
+const test = outer();
+test();  // ??
+```
+
+**Answer:**
+✅ **Yes**, yeh closure hai. `inner()` ne `data` ko yaad rakha outer se.
+
+---
+
+#### ✅ Q6. Is code ka output kya hoga?
+
+```js
+function makeMultiplier(x) {
+  return function(y) {
+    return x * y;
+  };
+}
+
+const double = makeMultiplier(2);
+console.log(double(5));
+```
+
+**Answer:**
+Output: `10`
+Kyuki `double` closure banata hai `x = 2` ke saath, aur 5 ko multiply karta hai.
+
+---
+
+#### ✅ Q7. `setTimeout` ke saath closure ka example do?
+
+```js
+function timer() {
+  let name = "Devesh";
+  setTimeout(function () {
+    console.log("Hi " + name);
+  }, 2000);
+}
+
+timer();
+```
+
+**Answer:**
+Output (2 second baad): `Hi Devesh`
+✅ Kyunki timeout ke function ne `name` ko yaad rakha — closure.
+
+---
+
+Agar tum chaho to main aur bhi real-life coding-based questions bhi de sakta hoon jisme tum khud practice kar sako. Chaho to "Test me" bol dena 😄
